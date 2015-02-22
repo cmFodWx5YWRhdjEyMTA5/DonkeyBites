@@ -4,4 +4,12 @@
 .idea/workspace.xml
 .idea/workspace.xml
 .idea/workspace.xml
-**/*.jar
+
+
+# Class Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear

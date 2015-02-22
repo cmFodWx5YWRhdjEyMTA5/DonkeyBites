@@ -1,1 +1,16 @@
 /target
+.idea/
+.project
+.pydevproject
+.idea/workspace.xml
+.idea/workspace.xml
+.idea/workspace.xml
+
+
+# Class Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
