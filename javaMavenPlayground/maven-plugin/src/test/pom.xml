@@ -13,6 +13,14 @@
 				<groupId>com.gorovdude</groupId>
 				<artifactId>doron-maven-plugin</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
+				<!--executions>
+					<execution>
+						<phase>clean</phase>
+						<goals>
+							<goal>doron</goal>
+						</goals>
+					</execution>
+				</executions-->
 			</plugin>
 		</plugins>
 	</build>

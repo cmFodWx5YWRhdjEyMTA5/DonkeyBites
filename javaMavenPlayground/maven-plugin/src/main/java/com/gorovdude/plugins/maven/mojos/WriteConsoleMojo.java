@@ -8,15 +8,21 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 
 
-@Mojo(name = "doron", defaultPhase = LifecyclePhase.PACKAGE, threadSafe = true, aggregator = true)
+@Mojo(name = "clean", defaultPhase = LifecyclePhase.CLEAN, threadSafe = true, aggregator = true)
+
+
+
 public class WriteConsoleMojo extends AbstractMojo {
   
-    
+	    
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		try {
 
 			String path = "C:\\Apache-maven-3.2.5\\testing.txt";
-			System.out.println("aaaaaaaaaaaaaaaaaaaaa");
+			System.out.println("                           testing                     ");
+			System.out.println("                           testing                     ");
+			System.out.println("                           testing                     ");
+			System.out.println("                           testing                     ");
 			File f = new File(path);
 			
 			f.createNewFile();
