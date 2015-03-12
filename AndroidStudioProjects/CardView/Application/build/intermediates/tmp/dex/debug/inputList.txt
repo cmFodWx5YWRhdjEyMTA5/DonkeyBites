@@ -1,0 +1,2 @@
+C:\Users\i032517\github\DonkeyBites\AndroidStudioProjects\CardView\Application\build\intermediates\classes\debug
+C:\Users\i032517\github\DonkeyBites\AndroidStudioProjects\CardView\Application\build\intermediates\pre-dexed\debug\classes-41a634ec1d91d5f8b0832a31899e23ce40a6dcbd.jar

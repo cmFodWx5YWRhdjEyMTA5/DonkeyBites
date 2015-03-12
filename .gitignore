@@ -1,9 +1,14 @@
 .idea/
 .project
 .pydevproject
+.settings
+.classpath
+.ats/
 .idea/workspace.xml
 .idea/workspace.xml
 .idea/workspace.xml
+bin/
+target/
 
 
 # Class Files #

@@ -23,6 +23,10 @@ public class WriteConsoleMojo extends AbstractMojo {
 			System.out.println("                           testing                     ");
 			System.out.println("                           testing                     ");
 			System.out.println("                           testing                     ");
+			
+			getLog().info("Hi there!!!");
+			
+			
 			File f = new File(path);
 			
 			f.createNewFile();
