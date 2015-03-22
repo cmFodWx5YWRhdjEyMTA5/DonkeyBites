@@ -13,4 +13,6 @@ def branches = proc.in.text.readLines().collect {
     it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '') 
 }
 
+assert branches == branches.sort(java.text.Collator.instance)
 println branches
+def list = branches
