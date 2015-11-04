@@ -1,0 +1,12 @@
+---
+- hosts: bvt
+  sudo: true
+  user: root
+
+  tasks:
+  - name: Clean BVT
+    script: Clean.sh FirstTrylalala
+    register: myEcho
+
+  - name: Debug
+    debug: msg="{{ myEcho.stdout_lines }}"
