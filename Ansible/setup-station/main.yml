@@ -1,0 +1,28 @@
+---
+- hosts: all
+
+  vars:
+    timezone: UTC
+
+  tasks:
+    - name: common | install packages
+      yum: pkg={{ item }} state=latest update_cache=yes
+      with_items:
+         - git
+         - htop
+         - vim
+         - locales-all
+         - python-pycurl
+         - bash-completion
+         - sudo
+         - ntp
+      tags: common
+
+    - name: common | set hostname
+      hostname: name={{ hostname }}
+      when: hostname is defined
+      tags: common
+
+    - name: common | configure prompt
+      lineinfile: dest=/etc/bash.bashrc regexp="^PS1=" line="PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" backup=yes
+      tags: common
