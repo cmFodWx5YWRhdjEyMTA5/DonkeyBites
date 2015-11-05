@@ -5,6 +5,7 @@
      - git
      - htop
      - vim
+     - nano
   tags:
      - yum
 #==================================
@@ -27,6 +28,18 @@
 #============================
 #============ GIT ===========
 #============================
+
+- name: git | remove the 'credentials' section from local repo
+  shell: cd ~/DonkeyBites && git config --local --remove-section credential
+  ignore_errors: yes
+  tags:
+     - git
+
+- name: git | configure cache for passwords
+  shell: cd ~/DonkeyBites && git config --local credential.helper "cache --timeout=604800"
+  tags:
+     - git
+
 
 - name: git | remove the user section from local repo
   shell: cd ~/DonkeyBites && git config --local --remove-section user
