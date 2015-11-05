@@ -24,9 +24,9 @@
   tags:
      - configuration
 
-#=============================
-#============ GIT ============
-#=============================
+#============================
+#============ GIT ===========
+#============================
 
 - name: git | remove the user section from local repo
   shell: cd ~/DonkeyBites && git config --local --remove-section user
