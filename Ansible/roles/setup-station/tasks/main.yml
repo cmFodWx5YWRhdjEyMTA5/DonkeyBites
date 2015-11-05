@@ -1,34 +1,52 @@
 ---
-- name: install packages
+- name: yum | install packages
   yum: pkg={{ item }} state=latest update_cache=yes
   with_items:
      - git
      - htop
      - vim
-     - bash-completion
   tags:
      - yum
+#==================================
+#==  GENERAL CONFIGURATION ========
+#==================================
 
-- name: copy initial .bashrc file
+- name: configuration | get git-completion.bash
+  get_url: url=https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash dest=~/.git-completion.bash mode=0755
+
+- name: configuration | copy initial .bashrc file
   template: src=.bashrc dest=~
   tags:
      - configuration
 
-- name: clone git DonkeyBites if not exists
-  git:
-     repo=https://github.com/doronshai/DonkeyBites.git
-     dest=/tmp/AAA
-     clone=yes
-  tags:
-     - git
-  register: git_output
-
-- name: debug
-  debug: var=git_output
-  tags:
-     - git
-
-- name: configure git
-  copy: src=.gitconfig dest=~/tmp/AAA/.gitconfig
+- name: configuration | Apply .bashrc
+  shell: . ~/.bashrc
   tags:
      - configuration
+
+#=============================
+#============ GIT ============
+#=============================
+
+- name: git | remove the user section from local repo
+  shell: cd ~/DonkeyBites && git config --local --remove-section user
+  tags:
+     - git
+
+- name: git | clone git DonkeyBites if not exists
+  git:
+     repo=https://github.com/doronshai/DonkeyBites.git
+     dest=~/DonkeyBites
+     update=no
+  tags:
+     - git
+
+- name: git | configure git user
+  shell: cd ~/DonkeyBites && git config --local user.name "Doron Shai"
+  tags:
+     - git
+
+- name: git | configure git email
+  shell: cd ~/DonkeyBites && git config --local user.email "doronshai@gmail.com"
+  tags:
+     - git
