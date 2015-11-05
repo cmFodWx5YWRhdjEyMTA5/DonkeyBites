@@ -1,0 +1,8 @@
+---
+# This playbook set a new working station with what is needed. 
+
+- hosts: stations 
+  remote_user: dshai
+
+  roles:
+    - setup-station

@@ -1,0 +1,11 @@
+---
+- name: common | install packages
+  yum: pkg={{ item }} state=latest update_cache=yes
+  with_items:
+     - git
+     - htop
+     - vim
+     - bash-completion
+   
+- name: common | copy initial .bashrc file
+  template: src=.bashrc dest=~
