@@ -1,5 +1,5 @@
 ---
-- name: common | install packages
+- name: install packages
   yum: pkg={{ item }} state=latest update_cache=yes
   with_items:
      - git
@@ -9,12 +9,26 @@
   tags:
      - yum
 
-- name: common | copy initial .bashrc file
+- name: copy initial .bashrc file
   template: src=.bashrc dest=~
   tags:
      - configuration
 
-- name: common | configure git
-  copy: src=.gitconfig dest=~/.gitconfig
+- name: clone git DonkeyBites if not exists
+  git:
+     repo=https://github.com/doronshai/DonkeyBites.git
+     dest=/tmp/AAA
+     clone=yes
+  tags:
+     - git
+  register: git_output
+
+- name: debug
+  debug: var=git_output
+  tags:
+     - git
+
+- name: configure git
+  copy: src=.gitconfig dest=~/tmp/AAA/.gitconfig
   tags:
      - configuration
