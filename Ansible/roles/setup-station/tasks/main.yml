@@ -6,6 +6,15 @@
      - htop
      - vim
      - bash-completion
-   
+  tags:
+     - yum
+
 - name: common | copy initial .bashrc file
   template: src=.bashrc dest=~
+  tags:
+     - configuration
+
+- name: common | configure git
+  copy: src=.gitconfig dest=~/.gitconfig
+  tags:
+     - configuration
