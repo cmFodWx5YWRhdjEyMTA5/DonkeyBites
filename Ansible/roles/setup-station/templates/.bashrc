@@ -12,6 +12,13 @@ fi
 # Use a long listing format ##
 alias ll='ls -la --color=auto'
 
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+
+alias mkdir='mkdir -pv'
+
+
+
 # Prompt will be changed only for interactive sessions 
 if [[ $- == *i* ]]
  then
