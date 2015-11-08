@@ -1,19 +1,34 @@
 ---
 - name: yum | install packages
-  yum: pkg={{ item }} state=latest update_cache=yes
+  yum: name={{ item }} state=latest update_cache=yes
+  sudo: yes
   with_items:
      - git
      - htop
      - vim
      - nano
+     - bash-completion
+  when: (ansible_distribution == "CentOS")
   tags:
-     - yum
-#==================================
-#==  GENERAL CONFIGURATION ========
-#==================================
+     - install
 
-- name: configuration | get git-completion.bash
-  get_url: url=https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash dest=~/.git-completion.bash mode=0755
+- name: apt-get | install packages
+  apt: pkg={{ item }} state=latest update_cache=yes
+  sudo: yes
+  with_items:
+     - git
+     - htop
+     - vim
+     - nano
+     - git-completion
+  when: (ansible_distribution == "Ubuntu")
+  tags:
+    - install
+
+
+#======================================
+#======  GENERAL CONFIGURATION ========
+#======================================
 
 - name: configuration | copy initial .bashrc file
   template: src=.bashrc dest=~
@@ -25,9 +40,17 @@
   tags:
      - configuration
 
-#============================
-#============ GIT ===========
-#============================
+#==============================
+#============ GIT =============
+#==============================
+
+- name: git | clone git DonkeyBites if not exists
+  git:
+     repo=https://github.com/doronshai/DonkeyBites.git
+     dest=~/DonkeyBites
+     update=no
+  tags:
+     - git
 
 - name: git | remove the 'credentials' section from local repo
   shell: cd ~/DonkeyBites && git config --local --remove-section credential
@@ -43,14 +66,7 @@
 
 - name: git | remove the user section from local repo
   shell: cd ~/DonkeyBites && git config --local --remove-section user
-  tags:
-     - git
-
-- name: git | clone git DonkeyBites if not exists
-  git:
-     repo=https://github.com/doronshai/DonkeyBites.git
-     dest=~/DonkeyBites
-     update=no
+  ignore_errors: yes
   tags:
      - git
 
