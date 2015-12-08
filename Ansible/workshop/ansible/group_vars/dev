@@ -1,0 +1,9 @@
+frontend_ip: 10.10.0.110
+mysql_server_ip: 10.10.0.110
+
+mysql_root_password: "qwe123"
+db_name: "wordpress"
+db_user: "dbuser"
+db_password: "dbpass"
+db_charset: "utf8"
+

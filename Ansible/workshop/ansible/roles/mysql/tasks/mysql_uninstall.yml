@@ -1,0 +1,6 @@
+- name: mysql_install
+  tags: 
+    - mysql_install
+  apt: name={{ item }} state=installed
+  with_items:
+    - mysql-server

@@ -1,0 +1,39 @@
+- name: mysql_config
+  tags: 
+    - mysql_config
+  mysql_db: name={{ db_name }} state=present
+  ignore_errors: yes
+
+- name: update_mysql_root_password_for_all_root_accounts
+  tags: update_mysql_root_password_for_all_root_accounts
+  mysql_user: name=root host={{ item }} password={{ mysql_root_password }} priv=*.*:ALL,GRANT
+  with_items:
+  - "{{ ansible_hostname }}"
+  - 127.0.0.1
+  - ::1
+  - localhost
+  ignore_errors: yes
+
+- name: mysql_service_restart
+  service: name=mysql state=restarted
+
+- name: mysql_add_user
+  tags: 
+    - mysql_add_user
+  mysql_user: login_password={{mysql_root_password }} login_user="root" name={{ db_user }} host={{ frontend_ip }}  password={{ db_password }} priv={{ db_name }}.*:ALL state=present
+
+- name: mysql_copy_scheme
+  tags: 
+    - mysql_copy_scheme
+  copy: src=wordpress.sql dest=/tmp/  
+
+- name: mysql_fix_scheme
+  replace: dest=/tmp/wordpress.sql regexp="10.10.0.102" replace={{ frontend_ip }} backup=yes
+
+- name: mysql_import_scheme
+  tags: 
+    - mysql_import_scheme
+  mysql_db: login_password={{mysql_root_password }} login_user="root"  name={{ db_name }} state=import target=/tmp/wordpress.sql 
+  
+
+

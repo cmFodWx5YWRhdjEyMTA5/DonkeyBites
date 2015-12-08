@@ -1,0 +1,13 @@
+hosts: all
+ansible_sudo: yes
+remote_user: user
+
+common_packages:
+  - mc
+  - htop
+  - iptraf-ng
+  - iotop 
+  - lsof 
+  - nmap 
+  - netcat-traditional
+

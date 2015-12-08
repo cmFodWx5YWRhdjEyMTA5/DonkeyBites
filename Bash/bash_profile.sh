@@ -19,6 +19,9 @@ export PATH
 # User specific aliases and functions
 
 alias ll='ls -lahG'
+alias dss = 'du -skh * | sort -nr'
+alias dssg = 'du -skh * | sort -nr | grep G'
+
 export PS1="\[\033]0;$MSYSTEM:${PWD//[^[:ascii:]]/?}\007\]\n\[\033[32m\]\u@\h \[\033[33m\]\w$(__git_ps33)\[\033[0m\]\n$ "
 source /etc/bash_completion.d/git
 

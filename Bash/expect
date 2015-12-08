@@ -1,0 +1,54 @@
+#!/usr/bin/expect -f
+set timeout 240
+
+#scp -r repository jenkins:jenkins@jenkins-slave-bdd-2:/opt/.m2/new
+
+set origin_folder [lindex $argv 0]
+set user [lindex $argv 1]
+set password [lindex $argv 2]
+set remote_server [lindex $argv 3]
+set remote_folder [lindex $argv 4]
+
+# connect to server via ssh, login, and su to root
+send_user "connecting to $remote_server\n"
+
+spawn scp -r $origin_folder -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o GSSAPIAuthentication=no $user@$remote_server:$remote_folder
+
+#login handles cases:
+#   login with keys (no user/pass)
+#   user/pass
+#   login with keys (first time verification)
+expect {
+  "assword:" {
+        send "$password\n"
+        exp_continue
+  }
+  "(yes/no)? " {
+        send "yes\n"
+        exp_continue
+  }
+  
+  "No route to host" {
+        puts "Host not reachable."
+		exit 2
+    }
+    
+  "lost connection" {
+   		puts "Connection to server is lost, check the log for details"
+    	exit 2
+   }
+	
+  "ort 22: Connection refused" {
+        puts "problem with host's SSH"
+		exit 2
+    }
+
+  eof {
+    exit 0
+  }
+  
+  timeout {
+    puts "timedout"
+    exit 1
+  }
+}

@@ -1,0 +1,25 @@
+#- name: update_repo 
+#  tags:
+#    - install_mongodb
+#  apt: update_cache=yes
+
+- name: mysql_install
+  tags: 
+    - mysql_install
+  apt: name={{ item }} state=installed
+  with_items:
+    - mysql-server
+    - python-mysqldb
+
+- name: mysql_open_network
+  tags: 
+    - mysql_open_network
+  lineinfile: dest=/etc/mysql/my.cnf regexp="bind-address.*= 127.0.0.1" line="bind-address          = 0.0.0.0" 
+
+- name: mysql_service_reolad
+  tags: 
+    - mysql_server_reload
+  service: name=mysql state=reloaded
+
+
+

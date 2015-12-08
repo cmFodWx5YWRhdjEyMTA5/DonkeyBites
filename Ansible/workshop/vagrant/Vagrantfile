@@ -1,0 +1,45 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+# 10x to Salo for the template
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+
+domain   = '.local'
+
+nodes = [
+  { :hostname => 'ansible', :ipoctet => '100', :ram => 512 },
+  { :hostname => 'mysql', :ipoctet => '101', :ram => 512 },
+  { :hostname => 'client', :ipoctet => '102', :ram => 512 },
+  { :hostname => 'dev', :ipoctet => '110', :ram => 512 },
+]
+
+subnets = ['10.10.0' ]
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  nodes.each do |node|
+    config.vm.define node[:hostname] do |nodeconfig|
+      nodeconfig.vm.box = "ubuntu/trusty64" 
+      nodeconfig.vm.hostname = node[:hostname] + "." + domain
+ 
+      nodeconfig.vm.network :forwarded_port, guest: 22, host: 2000 + node[:ipoctet].to_i , id: 'ssh'
+      subnets.each do |subnet|
+        nodeconfig.vm.network :private_network, ip: subnet + "." + node[:ipoctet], auto_config: true
+      end
+
+      memory = node[:ram] ? node[:ram] : 512;
+      nodeconfig.vm.provider :virtualbox do |vb|
+        vb.customize [
+          "modifyvm", :id,
+          "--cpuexecutioncap", "25",
+          "--memory", memory.to_s,
+        ]
+      end
+    end
+  end
+
+
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+  config.vm.provision :shell, :path => "bootstrap.sh"
+
+end

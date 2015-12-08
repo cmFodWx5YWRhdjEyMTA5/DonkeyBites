@@ -1,0 +1,35 @@
+[all:children]
+prod
+dev
+
+[prod:children]
+prod-frontend
+prod-db
+
+[prod-frontend]
+webserver
+
+[prod-db]
+dbserver
+
+########### Dev
+
+[dev:children]
+dev-frontend
+dev-db
+
+[dev-frontend]
+dev
+
+[dev-db]
+dev
+
+
+########### Groups
+[mysql:children]
+prod-db
+dev-db
+
+[frontend:children]
+prod-frontend
+dev-frontend

@@ -1,0 +1,6 @@
+---
+- include: basic_install.yml
+  tags:
+    - common
+
+

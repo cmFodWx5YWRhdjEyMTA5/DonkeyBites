@@ -1,0 +1,12 @@
+---
+- include: mysql_install.yml
+  tags: 
+    - mysql_install
+
+- include: mysql_config.yml
+  tags: 
+    - mysql_config
+
+- include: mysql_uninstall.yml
+  tags: 
+    - mysql_uninstall

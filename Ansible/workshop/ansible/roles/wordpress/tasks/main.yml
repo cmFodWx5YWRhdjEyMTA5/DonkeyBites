@@ -1,0 +1,4 @@
+---
+- include: wordpress_install.yml
+  tags: 
+    - wordpress_install

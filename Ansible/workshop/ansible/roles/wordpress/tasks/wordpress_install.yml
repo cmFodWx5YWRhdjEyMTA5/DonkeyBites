@@ -1,0 +1,29 @@
+#  apt: update_cache=yes
+
+- name: wordpress_install
+  tags: 
+    - wordpress_install
+  apt: name={{ item }} state=installed
+  with_items:
+    - wordpress
+
+- name: wordpress_create_symlink
+  tags: 
+    - wordpress_create_symlink
+  file: dest=/var/www/wordpress src=/usr/share/wordpress/ state=link
+
+- name: wordress_apache_config
+  tags: 
+    - wordpress_apache_config
+  lineinfile: dest=/etc/apache2/sites-enabled/000-default.conf regexp="DocumentRoot /var/www/html" line="DocumentRoot /var/www/wordpress"
+
+- name: wordpress_apache_reload
+  tags: 
+    - wordpress_apache_reload
+  service: name=apache2 state=reloaded
+
+- name: wordpress_config
+  tags: 
+    - wordpress_config
+  template: src=config.php dest=/etc/wordpress/config-{{ ansible_eth1.ipv4.address }}.php
+
