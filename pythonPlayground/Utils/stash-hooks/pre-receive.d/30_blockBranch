@@ -1,0 +1,102 @@
+#!/usr/local/bin/python2.7
+#
+
+import sys
+import logging
+from logging import handlers
+import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "../utils"))
+hook = os.path.basename(sys.argv[0])
+
+import utils
+import git_utils
+
+def run( lines , version ):
+    
+    # Get commit info
+    old_rev, new_rev, ref_name = git_utils.parse_receive_line(lines[0])
+    gitMessage = git_utils.git_get_commit_msg( new_rev )
+    
+    # get user that performs the push
+    user = git_utils.get_push_user()
+    
+    blockedbranches = git_utils.git_config_get(git_utils.SANDBOX_HOOK_BLOCKEDBRANCHES)
+    branches = git_utils.git_config_get(git_utils.SANDBOX_HOOK_BRANCHES)
+    branch_src_pattern = git_utils.git_config_get(git_utils.SANDBOX_HOOK_BRANCH_PATTERN)
+    super_users = git_utils.git_config_get(git_utils.SANDBOX_HOOK_SUPER_USERS).split(",")
+
+    #reading from dynamic lock file
+
+    try:
+      with open("/apps/git-lock/locks",'r') as f:
+          blockedbranches += ","+f.readline().rstrip()
+          super_users += ","+f.readline().rstrip()
+    except:
+       logging.error( "Locks file was not found")
+
+
+    logging.debug("Branches: [%s], branch_src_pattern:[%s], Blocked branches: [%s]" %(branches, branch_src_pattern, blockedbranches) )
+    if branch_src_pattern == None or branch_src_pattern == "":
+    	logging.error( "Missing configuration parameter for branch suffix [_stg_]")
+	return
+    	
+    curBranchName = git_utils.get_branch_name(ref_name)
+    logging.debug("Current branch name:[%s], push user: [%s]" %(curBranchName,user) )
+    if curBranchName in branches and user not in super_users:
+        
+        # Create mail message
+        mailer = utils.init_mailer()
+        message = " Direct push to branch '%s' was rejected!!" %(curBranchName)
+        logging.error(message)
+        subject = "[git sandbox]" + message
+        message += "\nGit commit message:"
+        for field,value in gitMessage.fields.items():
+            message += "\n\t%s: %s" %(field,value)
+        message += "\n\nHook info"
+        message += "\n\tVersion: %s" %version
+        
+        send_to = gitMessage.fields[git_utils.FLD_EMAIL]
+        # send mail
+        mailer.send(subject, send_to, message)
+        # reject the push
+        sys.exit(1)
+
+    for blockedbranch in blockedbranches.split(','):
+        if curBranchName.find(blockedbranch+branch_src_pattern) == 0 and curBranchName != blockedbranch  and user not in super_users:
+            logging.debug("Current branch is blocked!:%s" %curBranchName )
+	        # Create mail message
+            mailer = utils.init_mailer()
+            message = " Attempt to push into the blocked branch '%s' was rejected!!" %(curBranchName)
+            logging.error(message)
+            subject = "[git sandbox]" + message
+            message += "\nGit commit message:"
+            for field,value in gitMessage.fields.items():
+                message += "\n\t%s: %s" %(field,value)
+            message += "\n\nHook info"
+            message += "\n\tVersion: %s" %version
+
+            send_to = gitMessage.fields[git_utils.FLD_EMAIL]
+            # send mail
+            mailer.send(subject, send_to, message)
+            # reject the push
+            sys.exit(1)
+
+
+
+def main():
+    utils.init_logger()
+    version = git_utils.git_config_get(git_utils.SANDBOX_VERSION)
+    logging.debug("**** pre-receive hook running version: %s ****" %version )
+    lines = sys.stdin.readlines()
+#    for line in lines:
+#        logging.debug("git line: %s" %line )
+    run(lines,version)
+    logging.debug("**** pre-receive hook finished running ****" )
+    
+
+if __name__ == '__main__':
+    main()
+    
+
