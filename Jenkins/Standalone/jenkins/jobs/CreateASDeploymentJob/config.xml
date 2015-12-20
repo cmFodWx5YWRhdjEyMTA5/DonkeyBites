@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.TextParameterDefinition>
+          <name>currentJobName</name>
+          <description></description>
+          <defaultValue>EXAMPLE</defaultValue>
+        </hudson.model.TextParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#def name_of_current_job = build.environment.get(&quot;currentJobName&quot;)
+
+#&apos;name_of_current_job&apos;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.40">
+      <scriptText>import hudson.model.*
+  
+  
+//def env = System.getenv()
+
+//def CURRENT_SERVER = System.getenv(currentJobName) //env.get(&quot;currentJobName&quot;)
+
+//String CURRENT_SERVER = env[&apos;currentJobName&apos;]
+
+// get current thread / Executor
+def thr = Thread.currentThread()
+// get current build
+def build = thr?.executable
+
+
+String CURRENT_SERVER = build.environment.get(&quot;currentJobName&quot;)
+
+println CURRENT_SERVER is build.environment.get(&quot;currentJobName&quot;)
+
+Full_Name = &apos;AS_Deployer_&apos; + build.environment.get(&quot;currentJobName&quot;)
+
+println Full_Name
+
+job(Full_Name) {
+  logRotator(-1, 10)
+  description(&apos;Bla bla bla&apos;)
+}</scriptText>
+      <usingScriptText>true</usingScriptText>
+      <ignoreExisting>false</ignoreExisting>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath></additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

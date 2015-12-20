@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.groovy.SystemGroovy plugin="groovy@1.27">
+      <scriptSource class="hudson.plugins.groovy.StringScriptSource">
+        <command>hudson.PluginWrapper scmPluginWrapper = jenkins.model.Jenkins.getInstance().getPluginManager().getPlugin(&quot;scm-sync-configuration&quot;);
+java.util.List&lt;?&gt; commitsQueue = scmPluginWrapper.getPlugin().business.commitsQueue;
+println(commitsQueue);
+println(&apos;=============================================================================================&apos;);
+println(&apos;=============================================================================================&apos;);
+println(&apos;=============================================================================================&apos;);
+//commitsQueue.remove(0);
+println(commitsQueue);</command>
+      </scriptSource>
+      <bindings></bindings>
+      <classpath></classpath>
+    </hudson.plugins.groovy.SystemGroovy>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

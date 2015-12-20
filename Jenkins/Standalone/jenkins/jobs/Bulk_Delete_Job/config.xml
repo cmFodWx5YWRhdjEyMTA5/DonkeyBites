@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>Include_Regex</name>
+          <description></description>
+          <defaultValue>AS.*</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.groovy.SystemGroovy plugin="groovy@1.27">
+      <scriptSource class="hudson.plugins.groovy.StringScriptSource">
+        <command>import hudson.model.*
+import hudson.node_monitors.*
+import hudson.slaves.*
+import java.util.concurrent.*
+
+jenkins = Hudson.instance
+
+def thr = Thread.currentThread()
+
+def build = thr?.executable
+
+String REGEX = build.environment.get(&quot;Include_Regex&quot;)
+
+println &quot;REGEX is &quot; + REGEX
+
+for (item in jenkins.items){
+   println(&quot;\t ${item.name}&quot;);
+   println(&quot;\t ${item.name.getClass()}&quot;);
+   if (item.name ==~ REGEX){  
+       item.delete()
+       println(&quot;AAAAA&quot;);
+    }
+   
+} 
+</command>
+      </scriptSource>
+      <bindings>n_REGEX=$Include_Regex</bindings>
+      <classpath></classpath>
+    </hudson.plugins.groovy.SystemGroovy>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

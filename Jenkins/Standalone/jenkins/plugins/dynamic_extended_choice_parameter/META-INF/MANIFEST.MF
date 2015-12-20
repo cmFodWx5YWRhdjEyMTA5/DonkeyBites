@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: gurpreet.singh
+Build-Jdk: 1.7.0_25
+Extension-Name: dynamic_extended_choice_parameter
+Implementation-Title: dynamic_extended_choice_parameter
+Implementation-Version: 1.0.1
+Group-Id: com.moded.extendedchoiceparameter
+Short-Name: dynamic_extended_choice_parameter
+Long-Name: Dynamic Extended Choice Parameter Plug-In
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Dynamic+Extended+Choic
+ e+Parameter+plugin
+Plugin-Version: 1.0.1
+Hudson-Version: 1.548
+Jenkins-Version: 1.548
+Plugin-Dependencies: role-strategy:2.1.0,subversion:1.54
+Plugin-Developers: RGS:rgs:
+
