@@ -109,3 +109,27 @@ Function FuncStopAllServices
     
     }
 }
+\Function CleanListFile
+{
+	param (
+    [Parameter(Mandatory=$true)][string]$File
+    )
+        $temp="temp.tmp" 
+        
+        if (!(Test-Path $temp )){ new-item -name $temp -type "file"}
+    
+        #Remove first empty line
+        Get-Content $File| Select -Skip 1 | Set-Content $temp
+        Move $temp $File -Force
+
+        #Trim lines to remove spaces
+        $lines=(Get-Content $File) | foreach{ $_.Trim(" ")}  
+        $lines > $File
+
+        #Remove last 8 blank characters
+        $stream = [IO.File]::OpenWrite($File)
+        $stream.Length -lt 8
+        $stream.SetLength($stream.Length - 8)
+        $stream.Close()
+        $stream.Dispose()
+ }
