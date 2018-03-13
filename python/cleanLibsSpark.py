@@ -15,12 +15,12 @@ main_snapshot_version = "1.0.0-SNAPSHOT"
 # Artifacts tuples in the format:
 # [("some.group", "artifact_name")]
 artifacts = [
-    ("com.taptica", "budget"),
-    ("com.taptica", "strategy"),
-    ("com.taptica", "key"),
-    ("com.taptica", "banner"),
-    ("com.taptica", "static"),
-    ("com.taptica", "strategybudget")
+    ("com.xxx", "budget"),
+    ("com.xxx", "strategy"),
+    ("com.xxx", "key"),
+    ("com.xxx", "banner"),
+    ("com.xxx", "static"),
+    ("com.xxx", "strategybudget")
 ]
 
 for group, artifact in artifacts:
