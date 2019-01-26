@@ -1,0 +1,1 @@
+{"metadata": null, "data": null, "error": {"code": "bad_request", "title": "For air-quality history data, end_datetime must be before 19:00 today", "detail": "The value specified for the 'end_datetime' is invalid, as air-quality history data is only available for previous hours. Make sure you've specified a 'end_datetime' preceding the previous round hour: 2019-01-26T19:00:00Z"}}
