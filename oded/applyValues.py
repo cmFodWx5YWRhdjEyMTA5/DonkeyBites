@@ -67,9 +67,9 @@ if __name__ == "__main__":
     print ("Start apply Values to URLs and download them")
 
     threads = []
-    ranges = dict({'1': '1-100', '2': '101-200', '3': '201-299'})
+    ranges = dict({'1': '1-15', '2': '16-30', '3': '31-45', '4': '46-50', '5': '51-65', '6': '66-80', '7': '81-95', '8': '96-110', '9': '111-115', '10': '116-130', '11': '131-145', '12': '146-160', '13': '161-175', '14': '176-190', '15': '191-205', '16': '206-220', '17': '221-235', '18': '236-250', '19': '251-265', '20': '266-280', '21': '281-299',})
 
-    for i in range(1, 4):
+    for i in range(1, 22):
         min_value = ranges[str(i)].split("-")[0]
         max_value = ranges[str(i)].split("-")[1]
         t = threading.Thread(target=applyValues,args=(min_value, max_value))
