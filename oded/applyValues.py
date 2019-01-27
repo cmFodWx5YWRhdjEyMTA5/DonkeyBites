@@ -18,7 +18,7 @@ class Locations():
 
 
 
-def applyValues ():
+def applyValues (min_value, max_value):
     data = Locations("points.csv")
 
     directory="requests_with_applied_values"
@@ -31,7 +31,7 @@ def applyValues ():
         shutil.rmtree(directory_json)
     os.makedirs(directory_json)
 
-    for i in range(1, 299, 1): #299
+    for i in range(min_value, max_value, 1): #299
         current = i + 1
         print (current)
         current_lat = data.get_col_row(current,2)
@@ -67,9 +67,13 @@ if __name__ == "__main__":
     print ("Start apply Values to URLs and download them")
 
     threads = []
+    ranges = dict({'1': '1-100', '2': '101-200', '3': '201-299'})
 
-    for i in range(0, 20, 1):
-        t = threading.Thread(target=applyValues)
+    for i in range(1, 3):
+        min
+        min_value = ranges[i].split("-")[0]
+        max_value = ranges[i].split("-")[1]
+        t = threading.Thread(target=applyValues,args=(min_value, max_value))
         threads.append(t)
         t.start()
         print ("===== Fire Thread for - [" + str(i) + "]")
