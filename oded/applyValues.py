@@ -31,7 +31,7 @@ def applyValues (min_value, max_value):
         shutil.rmtree(directory_json)
     os.makedirs(directory_json)
 
-    for i in range(min_value, max_value, 1): #299
+    for i in range(int(min_value), int(max_value), 1): #299
         current = i + 1
         print (current)
         current_lat = data.get_col_row(current,2)
