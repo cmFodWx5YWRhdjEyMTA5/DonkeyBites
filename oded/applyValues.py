@@ -69,10 +69,9 @@ if __name__ == "__main__":
     threads = []
     ranges = dict({'1': '1-100', '2': '101-200', '3': '201-299'})
 
-    for i in range(1, 3):
-        min
-        min_value = ranges[i].split("-")[0]
-        max_value = ranges[i].split("-")[1]
+    for i in range(1, 4):
+        min_value = ranges[str(i)].split("-")[0]
+        max_value = ranges[str(i)].split("-")[1]
         t = threading.Thread(target=applyValues,args=(min_value, max_value))
         threads.append(t)
         t.start()
