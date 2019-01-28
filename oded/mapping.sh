@@ -61,7 +61,6 @@ do
           ;;      
       esac
       shift        
-      LINE="$LINE$(less $file | jq .data[$hour].pollutants.$pollutant.concentration.value | tr -d '"'),"
     done
     echo $LINE >> final_csv_files/$filename.csv
   done
