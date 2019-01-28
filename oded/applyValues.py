@@ -21,16 +21,6 @@ class Locations():
 def applyValues (min_value, max_value):
     data = Locations("points.csv")
 
-    directory="requests_with_applied_values"
-    if os.path.exists(directory):
-        shutil.rmtree(directory)
-    os.makedirs(directory)
-
-    directory_json="downloaded_jsons_before_filter"
-    if os.path.exists(directory_json):
-        shutil.rmtree(directory_json)
-    os.makedirs(directory_json)
-
     for i in range(int(min_value), int(max_value), 1): #299
         current = i + 1
         print (current)
@@ -69,6 +59,16 @@ if __name__ == "__main__":
     threads = []
     ranges = dict({'1': '1-15', '2': '16-30', '3': '31-45', '4': '46-50', '5': '51-65', '6': '66-80', '7': '81-95', '8': '96-110', '9': '111-115', '10': '116-130', '11': '131-145', '12': '146-160', '13': '161-175', '14': '176-190', '15': '191-205', '16': '206-220', '17': '221-235', '18': '236-250', '19': '251-265', '20': '266-280', '21': '281-299',})
 
+    directory="requests_with_applied_values"
+    if os.path.exists(directory):
+        shutil.rmtree(directory)
+    os.makedirs(directory)
+
+    directory_json="downloaded_jsons_before_filter"
+    if os.path.exists(directory_json):
+        shutil.rmtree(directory_json)
+    os.makedirs(directory_json)
+    
     for i in range(1, 22):
         min_value = ranges[str(i)].split("-")[0]
         max_value = ranges[str(i)].split("-")[1]
