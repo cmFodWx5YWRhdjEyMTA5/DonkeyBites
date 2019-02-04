@@ -25,3 +25,13 @@ chmod 755 InstaPy/assets/chromedriver
 rm chromedriver_linux64.zip
 cd InstaPy
 pip install .
+
+sudo apt-get install openvpn
+unzip mullvad_config_linux_il.zip
+cd mullvad_config_linux_il
+mkdir -p /etc/openvpn
+cp . /etc/openvpn
+ll /etc/openvpn/
+cp -r . /etc/openvpn
+ll /etc/openvpn/
+service openvpn start
