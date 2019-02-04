@@ -40,3 +40,4 @@ ll /etc/openvpn/
 cp -r . /etc/openvpn
 ll /etc/openvpn/
 service openvpn start
+
