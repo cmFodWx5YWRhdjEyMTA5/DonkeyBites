@@ -41,3 +41,4 @@ cp -r . /etc/openvpn
 ll /etc/openvpn/
 service openvpn start
 
+crontab cronChart
