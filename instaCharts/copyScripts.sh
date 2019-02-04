@@ -1,1 +1,1 @@
-cp -r instaPyScripts//* /home/insta/InstaPy/
+cp -r instaPyScripts/* /home/InstaPy/
