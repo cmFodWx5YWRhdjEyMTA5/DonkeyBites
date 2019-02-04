@@ -28,7 +28,10 @@ rm chromedriver_linux64.zip
 cd InstaPy
 pip install .
 
-
+cd /home
+git clone https://github.com/doronshai/DonkeyBites.git
+cp /home/DonkeyBites/instaCharts/mullvad_config_linux_il.zip /tmp
+cd /tmp
 unzip mullvad_config_linux_il.zip
 cd mullvad_config_linux_il
 mkdir -p /etc/openvpn
