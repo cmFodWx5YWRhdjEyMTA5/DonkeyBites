@@ -1,0 +1,52 @@
+{
+  "report": "1.0",
+  "data": {
+    "entries": [
+      {
+        "Date": "1548547200",
+        "Followers": 464,
+        "Following": "513"
+      },
+      {
+        "Date": "1548633600",
+        "Followers": 463,
+        "Following": "500"
+      },
+      {
+        "Date": "1548720000",
+        "Followers": 471,
+        "Following": "630"
+      },
+      {
+        "Date": "1548806400",
+        "Followers": 482,
+        "Following": "631"
+      },
+      {
+        "Date": "1548892800",
+        "Followers": 530,
+        "Following": "823"
+      },
+      {
+        "Date": "1548979200",
+        "Followers": "558",
+        "Following": "736"
+      },
+      {
+        "Date": "1549065600",
+        "Followers": "570",
+        "Following": "736"
+      },
+      {
+        "Date": "1549152000",
+        "Followers": "581",
+        "Following": "887"
+      },
+      {
+        "Date": "1549394111",
+        "Followers": "641",
+        "Following": "955"
+      }
+    ]
+  }
+}
