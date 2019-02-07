@@ -1,70 +1,75 @@
-<!DOCTYPE HTML>
-<html>
-<head>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es-us.js"></script>
+
+<canvas id="myLineChart" width="740" height="200"></canvas>
+
 <script>
-window.onload = function() {
+  function drawLineChart() {
 
-var dataPoints = [];
+    // Add a helper to format timestamp data
+    Date.prototype.formatMMDDYYYY = function() {
+        return (this.getMonth() + 1) +
+        "/" +  this.getDate() +
+        "/" +  this.getFullYear();
+    }
 
-var chart = new CanvasJS.Chart("chartContainer", {
-        animationEnabled: true,
-        theme: "light2",
-        title: {
-                text: "Followers Trend"
-        },
-        axisY: {
-                title: "Units",
-                titleFontSize: 24
-        },
-        data: [{
-                type: "column",
-                yValueFormatString: "#,### Followers",
-                dataPoints: dataPoints
-        }]
-});
+    var jsonData = $.ajax({
+      url: 'http://142.93.111.71/DORON/DORON_followers.json',
+      dataType: 'json',
+    }).done(function (results) {
 
-function addData(data) {
-        for (var i = 0; i < data.length; i++) {
+      // Split timestamp and data into separate arrays
+      let labels = [];
+      let dataFollowers={
+          label: "followers",
+          fillColor             : "rgba(151,187,205,0.2)",
+          strokeColor           : "rgba(151,187,205,1)",
+          pointColor            : "rgba(151,187,205,1)",
+          pointStrokeColor      : "#fff",
+          pointHighlightFill    : "#fff",
+          pointHighlightStroke  : "rgba(151,187,205,1)",
+          data: []
+      };
+      let dataFollowing={
+        label: "following",
+        fillColor             : "rgba(151,187,205,0.2)",
+        strokeColor           : "rgba(151,187,205,1)",
+        pointColor            : "rgba(151,187,205,1)",
+        pointStrokeColor      : "#fff",
+        pointHighlightFill    : "#fff",
+        pointHighlightStroke  : "rgba(151,187,205,1)",
+        data: []
+      };   
 
-                // Create a new JavaScript Date object based on the timestamp
-                // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-                var date = new Date(data[i].Date)
-                console.log("date is --------> " + date)
+      results.data.entries.forEach(function(packet) {
+        labels.push(moment.unix(packet.Date).format('MM/DD/YYYY'));
+        dataFollowers.data.push(parseFloat(packet.Followers));
+        dataFollowing.data.push(parseFloat(packet.Following));
+      });
 
-                var year = date.getYear();
-                console.log("year is  -----> " + year)
-                var month = date.getMonth();
-                console.log("month is  -----> " + month)
-                var day = date.getDay();
-                console.log("day is  -----> " + day)
+      // Create the chart.js data structure using 'labels' and 'data'
+      var tempData = {
+        labels : labels,
+        datasets : [dataFollowers,dataFollowing]
+      }
 
-		// Hours part from the timestamp
-                var hours = date.getHours();
-                console.log("hours are  -----> " + hours)
-                // Minutes part from the timestamp
-                var minutes = "0" + date.getMinutes();
-                console.log("minutes are  -----> " + minutes)
-                // Will display time in 10:30:23 format
-                var formattedTime = hours + ':' + minutes.substr(-2);
-                console.log("formattedTime is  -----> " + formattedTime)
+      // Get the context of the canvas element we want to select
+      var ctx = document.getElementById("myLineChart").getContext("2d");
 
-                dataPoints.push({
-                        x: formattedTime,
-                        y: data[i].Followers
-                });
-        }
-        chart.render();
+      var options ={}
 
-}
+      console.log(tempData);
 
-$.getJSON("followers.json", addData);
+      var myLineChart = new Chart(ctx, {
+          type: 'line',
+          data: tempData,
+          options: options
+      });
 
-}
+    });
+  }
+
+  drawLineChart();
 </script>
-</head>
-<body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</body>
-</html>
