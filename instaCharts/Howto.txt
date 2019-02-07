@@ -33,6 +33,16 @@ git config --global user.email "doronshai@gmail.com"
 git config --global user.name "Doron Shai"
 
 
+
+ssh-keygen
+
+# Taken from https://pythonhosted.org/telegram-send/#install
+sudo pip3 install telegram-send
+pip3 install telegram-send
+telegram-send --configure
+730982013:AAHjGc7kf3csMAY680TZTn80WFnb-dcdzOs
+
+
 cd /home
 git clone https://github.com/doronshai/DonkeyBites.git
 cp /home/DonkeyBites/instaCharts/mullvad_config_linux_il.zip /tmp
