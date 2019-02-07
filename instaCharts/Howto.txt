@@ -31,6 +31,7 @@ pip install .
 
 git config --global user.email "doronshai@gmail.com"
 git config --global user.name "Doron Shai"
+git config --global core.editor "vim"
 
 ssh-keygen
 
@@ -65,4 +66,10 @@ cp -r . /etc/openvpn
 ll /etc/openvpn/
 service openvpn start
 
-crontab cronChart
+crontab -l > mycron
+echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh SHAKED" >> mycron
+echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh DORON" >> mycron
+echo "0 1 * * * /home/DonkeyBites/instaCharts/backUpProject.sh" >> mycron
+crontab mycron
+rm mycron
+
