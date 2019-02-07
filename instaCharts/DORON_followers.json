@@ -4,27 +4,27 @@
     "entries": [
       {
         "Date": "1548547200",
-        "Followers": 464,
+        "Followers": "464",
         "Following": "513"
       },
       {
         "Date": "1548633600",
-        "Followers": 463,
+        "Followers": "463",
         "Following": "500"
       },
       {
         "Date": "1548720000",
-        "Followers": 471,
+        "Followers": "471",
         "Following": "630"
       },
       {
         "Date": "1548806400",
-        "Followers": 482,
+        "Followers": "482",
         "Following": "631"
       },
       {
         "Date": "1548892800",
-        "Followers": 530,
+        "Followers": "530",
         "Following": "823"
       },
       {
@@ -46,6 +46,16 @@
         "Date": "1549394111",
         "Followers": "641",
         "Following": "955"
+      },
+      {
+        "Date": "1549411201",
+        "Followers": "656",
+        "Following": "958"
+      },
+      {
+        "Date": "1549497601",
+        "Followers": "658",
+        "Following": "960"
       }
     ]
   }
