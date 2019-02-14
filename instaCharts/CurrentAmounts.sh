@@ -20,4 +20,4 @@ jq --arg DT "$DT" --arg FOLLOWERS "$FOLLOWERS" --arg FOLLOWING "$FOLLOWING" '.da
 rm -rf ${SCRIPT_HOME}/${CLIENT}_followers.json
 mv ${SCRIPT_HOME}/${CLIENT}_followers_temp.json ${SCRIPT_HOME}/${CLIENT}_followers.json
 
-cp -f ${SCRIPT_HOME}/${CLIENT}_followers.json /var/www/html/$CLINET/followers.json
+cp -f ${SCRIPT_HOME}/${CLIENT}_followers.json /var/www/html/${CLINET}/followers.json
