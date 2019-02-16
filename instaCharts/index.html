@@ -16,7 +16,7 @@
     }
 
     var jsonData = $.ajax({
-      url: 'http://142.93.111.71/DORON/DORON_followers.json',
+      url: 'http://142.93.111.71/__CLIENT__/followers.json',
       dataType: 'json',
     }).done(function (results) {
 
@@ -24,23 +24,31 @@
       let labels = [];
       let dataFollowers={
           label: "followers",
-          fillColor             : "rgba(151,187,205,0.2)",
-          strokeColor           : "rgba(151,187,205,1)",
-          pointColor            : "rgba(151,187,205,1)",
-          pointStrokeColor      : "#fff",
-          pointHighlightFill    : "#fff",
-          pointHighlightStroke  : "rgba(151,187,205,1)",
+          fill: true,
+          borderColor: "#55bae7",
+          backgroundColor: "rgba(186, 231, 85, 0.35)",
+          pointBackgroundColor: "#55bae7",
+          pointBorderColor: "#55bae7",
+          pointRadius: 5,
+          pointHoverRadius: 10,
+          pointHoverBackgroundColor: "#55bae7",
+          pointHoverBorderColor: "#55bae7",
           data: []
       };
       let dataFollowing={
-        label: "following",
-        fillColor             : "rgba(151,187,205,0.2)",
-        strokeColor           : "rgba(151,187,205,1)",
-        pointColor            : "rgba(151,187,205,1)",
-        pointStrokeColor      : "#fff",
-        pointHighlightFill    : "#fff",
-        pointHighlightStroke  : "rgba(151,187,205,1)",
-        data: []
+         label: "following",
+         fill: false,
+         borderWidth: 1, 
+         borderColor: "#d33af2",
+         borderDash: [15, 5],
+         backgroundColor: "#ffffff",
+         pointRadius: 1,
+         pointHoverRadius: 5,
+         //pointBackgroundColor: "#55bae7",
+         pointBorderColor: "#d33af2",
+         //pointHoverBackgroundColor: "#55bae7",
+         pointHoverBorderColor: "#55bae7",
+         data: []
       };   
 
       results.data.entries.forEach(function(packet) {
