@@ -1,13 +1,13 @@
-INFO [2019-02-17 13:08:02] [doronshai_creative]  Using built in instapy-chromedriver executable (version 2.44)
-INFO [2019-02-17 13:08:03] [doronshai_creative]  Session started!
-INFO [2019-02-17 13:08:37] [doronshai_creative]  Logged in successfully!
-INFO [2019-02-17 13:08:37] [doronshai_creative]  Saving account progress...
-INFO [2019-02-17 13:08:40] [doronshai_creative]  Sessional Live Report:
+INFO [2019-02-18 00:00:03] [doronshai_creative]  Using built in instapy-chromedriver executable (version 2.44)
+INFO [2019-02-18 00:00:34] [doronshai_creative]  Session started!
+INFO [2019-02-18 00:04:45] [doronshai_creative]  Logged in successfully!
+INFO [2019-02-18 00:04:45] [doronshai_creative]  Saving account progress...
+INFO [2019-02-18 00:06:19] [doronshai_creative]  Sessional Live Report:
 	|> No any statistics to show
 
-On session start was FOLLOWING 915 users & had 1086 FOLLOWERS
-[Session lasted 38.38 seconds]
-INFO [2019-02-17 13:08:40] [doronshai_creative]  Session ended!
+On session start was FOLLOWING 961 users & had 1106 FOLLOWERS
+[Session lasted 6.25 minutes]
+INFO [2019-02-18 00:06:19] [doronshai_creative]  Session ended!
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
 Workspace in use: "/root/InstaPy"
