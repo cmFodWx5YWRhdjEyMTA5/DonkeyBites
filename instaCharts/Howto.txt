@@ -43,27 +43,12 @@ vim /root/.ssh/config and add this to it:
    user doronshai
 
 
-
-
 #Taken from https://pythonhosted.org/telegram-send/#install
 sudo pip3 install telegram-send
 pip3 install telegram-send
 telegram-send --configure
 730982013:AAHjGc7kf3csMAY680TZTn80WFnb-dcdzOs
 
-
-cd /home
-git clone https://github.com/doronshai/DonkeyBites.git
-cp /home/DonkeyBites/instaCharts/mullvad_config_linux_il.zip /tmp
-cd /tmp
-unzip mullvad_config_linux_il.zip
-cd mullvad_config_linux_il
-mkdir -p /etc/openvpn
-cp . /etc/openvpn
-ll /etc/openvpn/
-cp -r . /etc/openvpn
-ll /etc/openvpn/
-service openvpn start
 
 crontab -l > mycron
 echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh SHAKED" >> mycron
