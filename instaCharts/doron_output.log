@@ -1,29 +1,75 @@
-INFO [2019-02-22 00:00:02] [doronshai_creative]  Using built in instapy-chromedriver executable (version 2.44)
-INFO [2019-02-22 00:00:04] [doronshai_creative]  Session started!
-INFO [2019-02-22 00:00:39] [doronshai_creative]  Logged in successfully!
-INFO [2019-02-22 00:00:39] [doronshai_creative]  Saving account progress...
-INFO [2019-02-22 00:00:44] [doronshai_creative]  Sessional Live Report:
-	|> No any statistics to show
-
-On session start was FOLLOWING 956 users & had 1189 FOLLOWERS
-[Session lasted 41.75 seconds]
-INFO [2019-02-22 00:00:44] [doronshai_creative]  Session ended!
+INFO [2019-02-22 07:24:06] [doronshai_creative]  Using built in instapy-chromedriver executable (version 2.44)
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
 Workspace in use: "/root/InstaPy"
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.5/http/client.py", line 1197, in getresponse
+    response.begin()
+  File "/usr/lib/python3.5/http/client.py", line 297, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.5/socket.py", line 575, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
 
-OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-oooooooooooooooooooooooooooooooooooooooooooooooooooooo
+During handling of the above exception, another exception occurred:
 
-
-........................................................................
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-
-OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-
-
-
+Traceback (most recent call last):
+  File "/home/InstaPy/get_amount_of_FOLLOWERS_doron.py", line 12, in <module>
+    bypass_suspicious_attempt=True)
+  File "/home/InstaPy/instapy/instapy.py", line 279, in __init__
+    self.set_selenium_local_session()
+  File "/home/InstaPy/instapy/instapy.py", line 331, in set_selenium_local_session
+    self.logger)
+  File "/home/InstaPy/instapy/browser.py", line 135, in set_selenium_local_session
+    chrome_options=chrome_options)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/chrome/webdriver.py", line 81, in __init__
+    desired_capabilities=desired_capabilities)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 157, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 252, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/request.py", line 72, in request
+    **urlopen_kw)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/request.py", line 150, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/poolmanager.py", line 323, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/util/retry.py", line 367, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/packages/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.5/http/client.py", line 1197, in getresponse
+    response.begin()
+  File "/usr/lib/python3.5/http/client.py", line 297, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.5/socket.py", line 575, in readinto
+    return self._sock.recv_into(b)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
