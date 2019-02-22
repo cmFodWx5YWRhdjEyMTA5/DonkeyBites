@@ -9,6 +9,30 @@ locale-gen en_US.UTF-8
 sudo dpkg-reconfigure locales
 sudo pip3 install --upgrade pip
 
+
+
+git config --global user.email "doronshai@gmail.com"
+git config --global user.name "Doron Shai"
+git config --global core.editor "vim"
+
+ssh-keygen
+
+cat /root/.ssh/id_rsa and add it to github SSH Keys
+
+vim /root/.ssh/config and add this to it:
+  
+Host github.com
+   IdentityFile /root/.ssh/id_rsa
+   user doronshai
+
+cd /home
+git clone git@github.com:doronshai/DonkeyBites.git
+
+cp -f /home/DonkeyBites/instaCharts/.bashrc ~
+source ~/.bashrc
+
+
+
 cd ~
 wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 sudo dpkg -i google-chrome-stable_current_amd64.deb
@@ -29,19 +53,7 @@ pip install .
 
 timedatectl set-timezone Israel
 
-git config --global user.email "doronshai@gmail.com"
-git config --global user.name "Doron Shai"
-git config --global core.editor "vim"
 
-ssh-keygen
-
-cat /root/.ssh/id_rsa and add it to github SSH Keys
-
-vim /root/.ssh/config and add this to it:
-  
-Host github.com
-   IdentityFile /root/.ssh/id_rsa
-   user doronshai
 
 
 #Taken from https://pythonhosted.org/telegram-send/#install
