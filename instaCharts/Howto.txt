@@ -65,7 +65,8 @@ telegram-send --configure
 
 crontab -l > mycron
 echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh SHAKED" >> mycron
-echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh DORON" >> mycron
+echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh YOAV" >> mycron
+echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh doron" >> mycron
 echo "0 1 * * * /home/DonkeyBites/instaCharts/backUpProject.sh" >> mycron
 crontab mycron
 rm mycron
