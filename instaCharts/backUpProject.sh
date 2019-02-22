@@ -3,6 +3,7 @@ cp -f /home/InstaPy/app.py /home/DonkeyBites/instaCharts/Server/
 cp -rf /home/InstaPy/static/* /home/DonkeyBites/instaCharts/Server/static/
 cp -rf /home/InstaPy/templates/* /home/DonkeyBites/instaCharts/Server/templates/
 git pull
+git add .
 git add Server/
 git commit -m"Update Server"
 git add *.json
