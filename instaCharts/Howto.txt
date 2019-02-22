@@ -27,6 +27,7 @@ rm chromedriver_linux64.zip
 cd InstaPy
 pip install .
 
+timedatectl set-timezone Israel
 
 git config --global user.email "doronshai@gmail.com"
 git config --global user.name "Doron Shai"
@@ -34,11 +35,11 @@ git config --global core.editor "vim"
 
 ssh-keygen
 
-cat id_rsa and add it to github SSH Keys
+cat /root/.ssh/id_rsa and add it to github SSH Keys
 
 vim /root/.ssh/config and add this to it:
   
-  Host github.com
+Host github.com
    IdentityFile /root/.ssh/id_rsa
    user doronshai
 
@@ -56,4 +57,3 @@ echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh DORON" >> mycron
 echo "0 1 * * * /home/DonkeyBites/instaCharts/backUpProject.sh" >> mycron
 crontab mycron
 rm mycron
-
