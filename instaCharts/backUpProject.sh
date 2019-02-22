@@ -1,4 +1,6 @@
 cd /home/DonkeyBites/instaCharts
+mkdir -p /home/DonkeyBites/instaCharts/nginx
+cp -rf /var/www/html/* /home/DonkeyBites/instaCharts/nginx
 cp -f /home/InstaPy/app.py /home/DonkeyBites/instaCharts/Server/
 cp -rf /home/InstaPy/static/* /home/DonkeyBites/instaCharts/Server/static/
 cp -rf /home/InstaPy/templates/* /home/DonkeyBites/instaCharts/Server/templates/

@@ -1,0 +1,47 @@
+{
+  "report": "1.0",
+  "data": {
+    "entries": [
+      {
+        "Date": "1550259200",
+        "Followers": "8",
+        "Following": "43"
+      },
+      {
+        "Date": "1550295585",
+        "Followers": "12",
+        "Following": "130"
+      },
+      {
+        "Date": "1550402101",
+        "Followers": "30",
+        "Following": "49"
+      },
+      {
+        "Date": "1550440801",
+        "Followers": "36",
+        "Following": "54"
+      },
+      {
+        "Date": "1550527201",
+        "Followers": "52",
+        "Following": "54"
+      },
+      {
+        "Date": "1550613601",
+        "Followers": "53",
+        "Following": "42"
+      },
+      {
+        "Date": "1550700001",
+        "Followers": "56",
+        "Following": "44"
+      },
+      {
+        "Date": "1550786401",
+        "Followers": "55",
+        "Following": "44"
+      }
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+window.onload = function() {
+
+var dataPoints = [];
+
+var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2",
+        title: {
+                text: "Followers Trend"
+        },
+        axisY: {
+                title: "Units",
+                titleFontSize: 24
+        },
+        data: [{
+                type: "column",
+                yValueFormatString: "#,### Followers",
+                dataPoints: dataPoints
+        }]
+});
+
+function addData(data) {
+        for (var i = 0; i < data.length; i++) {
+
+                // Create a new JavaScript Date object based on the timestamp
+                // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+                var date = new Date(data[i].Date)
+                console.log("date is --------> " + date)
+
+                var year = date.getYear();
+                console.log("year is  -----> " + year)
+                var month = date.getMonth();
+                console.log("month is  -----> " + month)
+                var day = date.getDay();
+                console.log("day is  -----> " + day)
+
+		// Hours part from the timestamp
+                var hours = date.getHours();
+                console.log("hours are  -----> " + hours)
+                // Minutes part from the timestamp
+                var minutes = "0" + date.getMinutes();
+                console.log("minutes are  -----> " + minutes)
+                // Will display time in 10:30:23 format
+                var formattedTime = hours + ':' + minutes.substr(-2);
+                console.log("formattedTime is  -----> " + formattedTime)
+
+                dataPoints.push({
+                        x: formattedTime,
+                        y: data[i].Followers
+                });
+        }
+        chart.render();
+
+}
+
+$.getJSON("DORON_followers.json", addData);
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>

@@ -21,6 +21,7 @@ rm -rf ${SCRIPT_HOME}/${CLIENT}_followers.json
 mv ${SCRIPT_HOME}/${CLIENT}_followers_temp.json ${SCRIPT_HOME}/${CLIENT}_followers.json
 
 sed -e "s/__CLIENT__/${CLIENT}/" INITIAL_index.html > ${CLIENT}_index.html
+mkdir -p /var/www/html/${CLIENT}/
 cp -f ${SCRIPT_HOME}/${CLIENT}_index.html /var/www/html/${CLIENT}/index.html
 
 cp -f ${SCRIPT_HOME}/${CLIENT}_followers.json /var/www/html/${CLIENT}/followers.json
