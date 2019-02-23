@@ -74,12 +74,12 @@
       },
       {
         "Date": "1550527201",
-        "Followers": "4295",
+        "Followers": "4268",
         "Following": "1060"
       },
       {
         "Date": "1550613601",
-        "Followers": "4287",
+        "Followers": "4283",
         "Following": "1077"
       },
       {
@@ -88,17 +88,18 @@
         "Following": "1084"
       },
       {
-        "Date": "1550786401",
-        "Followers": "4279",
-        "Following": "1088"
-      },
-      {
         "Date": "1550836944",
         "Followers": "4283",
         "Following": "1116"
       },
       {
         "Date": "1550880001",
+        "Followers": "4290",
+        "Following": "1189"
+      },
+      {
+        "Date": "1550959201",
+        "HumanDate": "24-02-2019-00-00",
         "Followers": "",
         "Following": "<module>"
       }
