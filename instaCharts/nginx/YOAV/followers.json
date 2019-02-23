@@ -41,6 +41,11 @@
         "Date": "1550786401",
         "Followers": "55",
         "Following": "44"
+      },
+      {
+        "Date": "1550880001",
+        "Followers": "",
+        "Following": "<module>"
       }
     ]
   }

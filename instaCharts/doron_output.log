@@ -1,29 +1,36 @@
-INFO [2019-02-22 13:47:09] [doronshai_creative]  Using built in instapy-chromedriver executable (version 2.46)
-INFO [2019-02-22 13:47:10] [doronshai_creative]  Session started!
-INFO [2019-02-22 13:47:43] [doronshai_creative]  Logged in successfully!
-INFO [2019-02-22 13:47:43] [doronshai_creative]  Saving account progress...
-INFO [2019-02-22 13:47:47] [doronshai_creative]  Sessional Live Report:
-	|> No any statistics to show
+INFO [2019-02-23 02:00:25] [doronshai_creative]  Using built in instapy-chromedriver executable (version 2.46)
+ERROR [2019-02-23 02:00:33] [doronshai_creative]  Message: session not created
+from tab crashed
+  (Session info: headless chrome=72.0.3626.119)
+  (Driver info: chromedriver=2.46.628388 (4a34a70827ac54148e092aafb70504c4ea7ae926),platform=Linux 4.4.0-142-generic x86_64)
+Traceback (most recent call last):
+  File "/home/InstaPy/instapy/browser.py", line 135, in set_selenium_local_session
+    chrome_options=chrome_options)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/chrome/webdriver.py", line 81, in __init__
+    desired_capabilities=desired_capabilities)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 157, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 252, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created
+from tab crashed
+  (Session info: headless chrome=72.0.3626.119)
+  (Driver info: chromedriver=2.46.628388 (4a34a70827ac54148e092aafb70504c4ea7ae926),platform=Linux 4.4.0-142-generic x86_64)
 
-On session start was FOLLOWING 1135 users & had 1209 FOLLOWERS
-[Session lasted 37.96 seconds]
-INFO [2019-02-22 13:47:47] [doronshai_creative]  Session ended!
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
 Workspace in use: "/root/InstaPy"
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
-
-OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-oooooooooooooooooooooooooooooooooooooooooooooooooooooo
-
-
-........................................................................
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-
-OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-
-
-
+Traceback (most recent call last):
+  File "/home/InstaPy/get_amount_of_FOLLOWERS_doron.py", line 12, in <module>
+    bypass_suspicious_attempt=True)
+  File "/home/InstaPy/instapy/instapy.py", line 279, in __init__
+    self.set_selenium_local_session()
+  File "/home/InstaPy/instapy/instapy.py", line 333, in set_selenium_local_session
+    raise InstaPyError(err_msg)
+instapy.exceptions.InstaPyError: ensure chromedriver is installed at /usr/local/lib/python3.5/dist-packages/instapy_chromedriver/chromedriver_linux64
