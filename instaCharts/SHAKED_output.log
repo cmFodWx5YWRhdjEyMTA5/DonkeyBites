@@ -1,85 +1,36 @@
-INFO [2019-02-24 00:00:38] [shaked.ohayon]  Using built in instapy-chromedriver executable (version 2.46)
-INFO [2019-02-24 00:00:41] [shaked.ohayon]  Session started!
-ERROR [2019-02-24 00:01:11] [shaked.ohayon]  Error occurred while deleting cookies from web browser!
-	b'Message: invalid session id\n  (Driver info: chromedriver=2.46.628388 (4a34a70827ac54148e092aafb70504c4ea7ae926),platform=Linux 4.4.0-142-generic x86_64)\n'
+INFO [2019-02-25 00:00:03] [shaked.ohayon]  Using built in instapy-chromedriver executable (version 2.46)
+ERROR [2019-02-25 00:00:54] [shaked.ohayon]  Message: unknown error: Chrome failed to start: crashed
+  (chrome not reachable)
+  (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+  (Driver info: chromedriver=2.46.628388 (4a34a70827ac54148e092aafb70504c4ea7ae926),platform=Linux 4.4.0-142-generic x86_64)
 Traceback (most recent call last):
-  File "/home/InstaPy/instapy/util.py", line 1676, in smart_run
-    session.login()
-  File "/home/InstaPy/instapy/instapy.py", line 378, in login
-    self.bypass_with_mobile):
-  File "/home/InstaPy/instapy/login_util.py", line 161, in login_user
-    web_address_navigator(browser, ig_homepage)
-  File "/home/InstaPy/instapy/util.py", line 1042, in web_address_navigator
-    browser.get(link)
-  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 333, in get
-    self.execute(Command.GET, {'url': url})
+  File "/home/InstaPy/instapy/browser.py", line 135, in set_selenium_local_session
+    chrome_options=chrome_options)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/chrome/webdriver.py", line 81, in __init__
+    desired_capabilities=desired_capabilities)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 157, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 252, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
   File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
     self.error_handler.check_response(response)
   File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
     raise exception_class(message, screen, stacktrace)
-selenium.common.exceptions.WebDriverException: Message: unknown error: session deleted because of page crash
-from tab crashed
-  (Session info: headless chrome=72.0.3626.119)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: crashed
+  (chrome not reachable)
+  (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
   (Driver info: chromedriver=2.46.628388 (4a34a70827ac54148e092aafb70504c4ea7ae926),platform=Linux 4.4.0-142-generic x86_64)
 
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/InstaPy/instapy/browser.py", line 218, in close_browser
-    browser.delete_all_cookies()
-  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 878, in delete_all_cookies
-    self.execute(Command.DELETE_ALL_COOKIES)
-  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
-    self.error_handler.check_response(response)
-  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
-    raise exception_class(message, screen, stacktrace)
-selenium.common.exceptions.WebDriverException: Message: invalid session id
-  (Driver info: chromedriver=2.46.628388 (4a34a70827ac54148e092aafb70504c4ea7ae926),platform=Linux 4.4.0-142-generic x86_64)
-
-INFO [2019-02-24 00:01:12] [shaked.ohayon]  Sessional Live Report:
-	|> No any statistics to show
-
-
-[Session lasted 33.69 seconds]
-INFO [2019-02-24 00:01:12] [shaked.ohayon]  Session ended!
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
 Workspace in use: "/root/InstaPy"
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
-
-OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-oooooooooooooooooooooooooooooooooooooooooooooooooooooo
-
-
-
-OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-oooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-
-
-
 Traceback (most recent call last):
-  File "/home/InstaPy/get_amount_of_FOLLOWERS_SHAKED.py", line 15, in <module>
-    with smart_run(session):
-  File "/usr/lib/python3.5/contextlib.py", line 59, in __enter__
-    return next(self.gen)
-  File "/home/InstaPy/instapy/util.py", line 1676, in smart_run
-    session.login()
-  File "/home/InstaPy/instapy/instapy.py", line 378, in login
-    self.bypass_with_mobile):
-  File "/home/InstaPy/instapy/login_util.py", line 161, in login_user
-    web_address_navigator(browser, ig_homepage)
-  File "/home/InstaPy/instapy/util.py", line 1042, in web_address_navigator
-    browser.get(link)
-  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 333, in get
-    self.execute(Command.GET, {'url': url})
-  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
-    self.error_handler.check_response(response)
-  File "/usr/local/lib/python3.5/dist-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
-    raise exception_class(message, screen, stacktrace)
-selenium.common.exceptions.WebDriverException: Message: unknown error: session deleted because of page crash
-from tab crashed
-  (Session info: headless chrome=72.0.3626.119)
-  (Driver info: chromedriver=2.46.628388 (4a34a70827ac54148e092aafb70504c4ea7ae926),platform=Linux 4.4.0-142-generic x86_64)
-
+  File "/home/InstaPy/get_amount_of_FOLLOWERS_SHAKED.py", line 12, in <module>
+    bypass_suspicious_attempt=True)
+  File "/home/InstaPy/instapy/instapy.py", line 279, in __init__
+    self.set_selenium_local_session()
+  File "/home/InstaPy/instapy/instapy.py", line 333, in set_selenium_local_session
+    raise InstaPyError(err_msg)
+instapy.exceptions.InstaPyError: ensure chromedriver is installed at /usr/local/lib/python3.5/dist-packages/instapy_chromedriver/chromedriver_linux64

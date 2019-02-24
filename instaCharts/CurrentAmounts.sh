@@ -20,7 +20,8 @@ jq --arg DT "$DT" --arg HUMANDATE "$HUMANDATE" --arg FOLLOWERS "$FOLLOWERS" --ar
 rm -rf ${SCRIPT_HOME}/${CLIENT}_followers.json
 mv ${SCRIPT_HOME}/${CLIENT}_followers_temp.json ${SCRIPT_HOME}/${CLIENT}_followers.json
 
-sed -e "s/__CLIENT__/${CLIENT}/" INITIAL_index.html > ${CLIENT}_index.html
+rm -rf ${CLIENT}_index.html
+sed -e "s/__CLIENT__/${CLIENT}/" ${SCRIPT_HOME}/INITIAL_index.html > ${SCRIPT_HOME}/${CLIENT}_index.html
 mkdir -p /var/www/html/${CLIENT}/
 cp -f ${SCRIPT_HOME}/${CLIENT}_index.html /var/www/html/${CLIENT}/index.html
 
