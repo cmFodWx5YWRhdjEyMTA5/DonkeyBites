@@ -1,13 +1,13 @@
-INFO [2019-02-26 00:30:02] [ofek_cosmetics1]  Using built in instapy-chromedriver executable (version 2.46)
-INFO [2019-02-26 00:30:03] [ofek_cosmetics1]  Session started!
-INFO [2019-02-26 00:30:37] [ofek_cosmetics1]  Logged in successfully!
-INFO [2019-02-26 00:30:37] [ofek_cosmetics1]  Saving account progress...
-INFO [2019-02-26 00:30:40] [ofek_cosmetics1]  Sessional Live Report:
+INFO [2019-02-27 00:30:02] [ofek_cosmetics1]  Using built in instapy-chromedriver executable (version 2.46)
+INFO [2019-02-27 00:30:04] [ofek_cosmetics1]  Session started!
+INFO [2019-02-27 00:30:38] [ofek_cosmetics1]  Logged in successfully!
+INFO [2019-02-27 00:30:38] [ofek_cosmetics1]  Saving account progress...
+INFO [2019-02-27 00:30:42] [ofek_cosmetics1]  Sessional Live Report:
 	|> No any statistics to show
 
-On session start was FOLLOWING 338 users & had 473 FOLLOWERS
-[Session lasted 38.44 seconds]
-INFO [2019-02-26 00:30:40] [ofek_cosmetics1]  Session ended!
+On session start was FOLLOWING 322 users & had 506 FOLLOWERS
+[Session lasted 39.53 seconds]
+INFO [2019-02-27 00:30:42] [ofek_cosmetics1]  Session ended!
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
 Workspace in use: "/root/InstaPy"
