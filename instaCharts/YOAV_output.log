@@ -1,13 +1,13 @@
-INFO [2019-02-27 00:10:02] [yoav.shai.2010]  Using built in instapy-chromedriver executable (version 2.46)
-INFO [2019-02-27 00:10:03] [yoav.shai.2010]  Session started!
-INFO [2019-02-27 00:10:37] [yoav.shai.2010]  Logged in successfully!
-INFO [2019-02-27 00:10:37] [yoav.shai.2010]  Saving account progress...
-INFO [2019-02-27 00:10:40] [yoav.shai.2010]  Sessional Live Report:
+INFO [2019-02-28 00:10:03] [yoav.shai.2010]  Using built in instapy-chromedriver executable (version 2.46)
+INFO [2019-02-28 00:10:04] [yoav.shai.2010]  Session started!
+INFO [2019-02-28 00:10:38] [yoav.shai.2010]  Logged in successfully!
+INFO [2019-02-28 00:10:38] [yoav.shai.2010]  Saving account progress...
+INFO [2019-02-28 00:10:41] [yoav.shai.2010]  Sessional Live Report:
 	|> No any statistics to show
 
-On session start was FOLLOWING 78 users & had 110 FOLLOWERS
-[Session lasted 38.17 seconds]
-INFO [2019-02-27 00:10:40] [yoav.shai.2010]  Session ended!
+On session start was FOLLOWING 92 users & had 120 FOLLOWERS
+[Session lasted 38.69 seconds]
+INFO [2019-02-28 00:10:41] [yoav.shai.2010]  Session ended!
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
 Workspace in use: "/root/InstaPy"
