@@ -1,13 +1,13 @@
-INFO [2019-02-28 00:00:02] [shaked.ohayon]  Using built in instapy-chromedriver executable (version 2.46)
-INFO [2019-02-28 00:00:04] [shaked.ohayon]  Session started!
-INFO [2019-02-28 00:00:38] [shaked.ohayon]  Logged in successfully!
-INFO [2019-02-28 00:00:38] [shaked.ohayon]  Saving account progress...
-INFO [2019-02-28 00:00:42] [shaked.ohayon]  Sessional Live Report:
+INFO [2019-03-01 00:00:02] [shaked.ohayon]  Using built in instapy-chromedriver executable (version 2.46)
+INFO [2019-03-01 00:00:04] [shaked.ohayon]  Session started!
+INFO [2019-03-01 00:00:38] [shaked.ohayon]  Logged in successfully!
+INFO [2019-03-01 00:00:38] [shaked.ohayon]  Saving account progress...
+INFO [2019-03-01 00:00:42] [shaked.ohayon]  Sessional Live Report:
 	|> No any statistics to show
 
-On session start was FOLLOWING 1461 users & had 4631 FOLLOWERS
-[Session lasted 40.56 seconds]
-INFO [2019-02-28 00:00:42] [shaked.ohayon]  Session ended!
+On session start was FOLLOWING 1482 users & had 4678 FOLLOWERS
+[Session lasted 39.73 seconds]
+INFO [2019-03-01 00:00:42] [shaked.ohayon]  Session ended!
 
  ._.  ._.  ._.  ._.  ._.  ._.  ._. 
 Workspace in use: "/root/InstaPy"
