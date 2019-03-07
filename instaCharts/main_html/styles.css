@@ -152,4 +152,6 @@ article {
   background-color: rgba(0, 0, 0, 0.5);
   pointer-events: none;
   white-space: pre-wrap;
+  text-align: center;
+  line-height: 5em;
 }
