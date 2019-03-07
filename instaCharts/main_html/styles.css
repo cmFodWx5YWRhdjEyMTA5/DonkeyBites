@@ -153,8 +153,11 @@ article {
   pointer-events: none;
   font-family: 'Raleway', sans-serif;
   color: white;
-  font-size: 1.2em;
-  text-align: center;
+  font-size: 0.7em;
+  text-shadow: none;
+  /* text-align: center;
+  text-shadow: none; */
+
   /* white-space: pre-wrap;
   text-align: center;
   line-height: 5em; */
