@@ -138,4 +138,5 @@ article {
   opacity: 0;
   transition: .5s ease;
   background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
