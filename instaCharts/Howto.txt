@@ -8,7 +8,30 @@ sudo apt-get -y install unzip python3-pip python3-dev build-essential libssl-dev
 locale-gen en_US.UTF-8
 sudo dpkg-reconfigure locales
 sudo pip3 install --upgrade pip
-pip3 install --upgrade pip
+
+
+
+git config --global user.email "doronshai@gmail.com"
+git config --global user.name "Doron Shai"
+git config --global core.editor "vim"
+
+ssh-keygen
+
+cat /root/.ssh/id_rsa and add it to github SSH Keys
+
+vim /root/.ssh/config and add this to it:
+  
+Host github.com
+   IdentityFile /root/.ssh/id_rsa
+   user doronshai
+
+cd /home
+git clone git@github.com:doronshai/DonkeyBites.git
+
+cp -f /home/DonkeyBites/instaCharts/.bashrc ~
+source ~/.bashrc
+
+
 
 cd ~
 wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
@@ -28,20 +51,7 @@ rm chromedriver_linux64.zip
 cd InstaPy
 pip install .
 
-
-git config --global user.email "doronshai@gmail.com"
-git config --global user.name "Doron Shai"
-git config --global core.editor "vim"
-
-ssh-keygen
-
-cat id_rsa and add it to github SSH Keys
-
-vim /root/.ssh/config and add this to it:
-  
-  Host github.com
-   IdentityFile /root/.ssh/id_rsa
-   user doronshai
+timedatectl set-timezone Israel
 
 
 
@@ -53,23 +63,10 @@ telegram-send --configure
 730982013:AAHjGc7kf3csMAY680TZTn80WFnb-dcdzOs
 
 
-cd /home
-git clone https://github.com/doronshai/DonkeyBites.git
-cp /home/DonkeyBites/instaCharts/mullvad_config_linux_il.zip /tmp
-cd /tmp
-unzip mullvad_config_linux_il.zip
-cd mullvad_config_linux_il
-mkdir -p /etc/openvpn
-cp . /etc/openvpn
-ll /etc/openvpn/
-cp -r . /etc/openvpn
-ll /etc/openvpn/
-service openvpn start
-
 crontab -l > mycron
 echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh SHAKED" >> mycron
-echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh DORON" >> mycron
+echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh YOAV" >> mycron
+echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh doron" >> mycron
 echo "0 1 * * * /home/DonkeyBites/instaCharts/backUpProject.sh" >> mycron
 crontab mycron
 rm mycron
-

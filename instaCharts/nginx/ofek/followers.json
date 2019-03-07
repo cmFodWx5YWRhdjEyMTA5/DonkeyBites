@@ -1,0 +1,55 @@
+{
+  "report": "1.0",
+  "data": {
+    "entries": [
+      {
+        "Date": "1551045601",
+        "HumanDate": "25-02-2019-00-00",
+        "Followers": "400",
+        "Following": "287"
+      },
+      {
+        "Date": "1551133801",
+        "HumanDate": "26-02-2019-00-30",
+        "Followers": "473",
+        "Following": "338"
+      },
+      {
+        "Date": "1551220201",
+        "HumanDate": "27-02-2019-00-30",
+        "Followers": "506",
+        "Following": "322"
+      },
+      {
+        "Date": "1551306601",
+        "HumanDate": "28-02-2019-00-30",
+        "Followers": "531",
+        "Following": "379"
+      },
+      {
+        "Date": "1551393001",
+        "HumanDate": "01-03-2019-00-30",
+        "Followers": "556",
+        "Following": "349"
+      },
+      {
+        "Date": "1551479401",
+        "HumanDate": "02-03-2019-00-30",
+        "Followers": "582",
+        "Following": "337"
+      },
+      {
+        "Date": "1551565801",
+        "HumanDate": "03-03-2019-00-30",
+        "Followers": "603",
+        "Following": "344"
+      },
+      {
+        "Date": "1551652201",
+        "HumanDate": "04-03-2019-00-30",
+        "Followers": "606",
+        "Following": "322"
+      }
+    ]
+  }
+}

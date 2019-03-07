@@ -1,0 +1,95 @@
+<html>
+<title>your keyword rich title of the website and/or webpage</title>
+<meta name="description" content="Progress of Instagram Bot for SHAKED">
+<meta property="og:title" content="SHAKED's Instagram Bot Performance" />
+<meta property="og:url" content="http://www.gorovbots.com/SHAKED" />
+<meta property="og:description" content="Instagram Bot Performance">
+<meta property="og:image" content="http://res.cloudinary.com/gorovdude/image/upload/v1550595547/Instagram_AppIcon_Aug2017_uwxlcf.png">
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es-us.js"></script>
+
+<canvas id="myLineChart" width="740" height="200"></canvas>
+
+<script>
+  function drawLineChart() {
+
+    // Add a helper to format timestamp data
+    Date.prototype.formatMMDDYYYY = function() {
+        return (this.getMonth() + 1) +
+        "/" +  this.getDate() +
+        "/" +  this.getFullYear();
+    }
+
+    var jsonData = $.ajax({
+      url: 'http://www.gorovbots.com/SHAKED/followers.json',
+      dataType: 'json',
+    }).done(function (results) {
+
+      // Split timestamp and data into separate arrays
+      let labels = [];
+      let dataFollowers={
+          label: "followers",
+          fill: true,
+          borderColor: "#55bae7",
+          backgroundColor: "rgba(186, 231, 85, 0.35)",
+          pointBackgroundColor: "#55bae7",
+          pointBorderColor: "#55bae7",
+          pointRadius: 5,
+          pointHoverRadius: 10,
+          pointHoverBackgroundColor: "#55bae7",
+          pointHoverBorderColor: "#55bae7",
+          data: []
+      };
+      let dataFollowing={
+         label: "following",
+         fill: false,
+         borderWidth: 1, 
+         borderColor: "#d33af2",
+         borderDash: [15, 5],
+         backgroundColor: "#ffffff",
+         pointRadius: 1,
+         pointHoverRadius: 5,
+         //pointBackgroundColor: "#55bae7",
+         pointBorderColor: "#d33af2",
+         //pointHoverBackgroundColor: "#55bae7",
+         pointHoverBorderColor: "#55bae7",
+         data: []
+      };   
+
+      results.data.entries.forEach(function(packet) {
+        labels.push(moment.unix(packet.Date).format('MM/DD/YYYY'));
+        dataFollowers.data.push(parseFloat(packet.Followers));
+        dataFollowing.data.push(parseFloat(packet.Following));
+      });
+
+      // Create the chart.js data structure using 'labels' and 'data'
+      var tempData = {
+        labels : labels,
+        datasets : [dataFollowers,dataFollowing]
+      }
+
+      // Get the context of the canvas element we want to select
+      var ctx = document.getElementById("myLineChart").getContext("2d");
+
+      var options ={}
+
+      console.log(tempData);
+
+      var myLineChart = new Chart(ctx, {
+          type: 'line',
+          data: tempData,
+          options: options
+      });
+
+    });
+  }
+
+  drawLineChart();
+</script>
+
+</html>
