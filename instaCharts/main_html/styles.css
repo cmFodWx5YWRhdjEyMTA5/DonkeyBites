@@ -139,3 +139,7 @@ article {
   width: 100%;
   background-color: rgba(0, 0, 0, 1);
 }
+
+.article:hover {
+  opacity: 0.5;
+}
