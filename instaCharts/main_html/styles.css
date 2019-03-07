@@ -149,12 +149,13 @@ article {
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   pointer-events: none;
   font-family: 'Raleway', sans-serif;
   color: white;
   font-size: 0.7em;
   text-shadow: none;
+  line-height: 5em;
   /* text-align: center;
   text-shadow: none; */
 
