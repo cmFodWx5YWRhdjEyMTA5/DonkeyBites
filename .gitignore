@@ -20,3 +20,5 @@ target/
 *.ear
 pythonPlayground/Drafts/test.crx
 pythonPlayground/Drafts/test.crx
+instaCharts/instapy.db
+oded/.vscode/settings.json
