@@ -70,3 +70,9 @@ echo "0 0 * * * /home/DonkeyBites/instaCharts/CurrentAmounts.sh doron" >> mycron
 echo "0 1 * * * /home/DonkeyBites/instaCharts/backUpProject.sh" >> mycron
 crontab mycron
 rm mycron
+
+
+cd /home
+git clone git@github.com:LevPasha/Instagram-API-python.git
+cp get_stats.py /home/Instagram-API-python/
+
