@@ -120,18 +120,17 @@ def validate_path(path):
             raise InstaPyError(msg)
 
 if __name__ == "__main__":
-    username='yoav.shai.2010'
-    password='Ilmbfvm2018'
+    username='xxxxx'
+    password='yyyyyyy'
     Settings.profile["name"] = username
 
     api = InstagramAPI(username,password)
     api.login()
+
     multi_logs=True
     show_logs=True
     logfolder = get_logfolder(username, multi_logs)
     logger = get_instapy_logger(show_logs)
-
-
 
     # user_id = '1461295173'
     user_id = api.username_id
@@ -146,21 +145,9 @@ if __name__ == "__main__":
     
     save_account_progress("yoav.shai.2010", followers, following, posts, logger)
 
-
-    orig_stdout = sys.stdout
-    f = open('out.txt', 'w')
-    sys.stdout = f
-
-#    print('Number of followers:', len(followers))
-    print(followers)
-#    with open('output.txt', 'w') as f:
-#        print >> f, 'Number of followers:', len(followers) 
-#        print >> f, 'The followers are:', followers 
-
-    sys.stdout = orig_stdout
-    f.close()
-
-    # Alternatively, use the code below
-    # (check evaluation.evaluate_user_followers for further details).
-    #followers = api.getTotalFollowers(user_id)
-    #print('Number of followers:', len(followers))
+    # orig_stdout = sys.stdout
+    # f = open('out.txt', 'w')
+    # sys.stdout = f
+    # print(followers)
+    # sys.stdout = orig_stdout
+    # f.close()
