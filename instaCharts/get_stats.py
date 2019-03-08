@@ -129,6 +129,5 @@ if __name__ == "__main__":
         sys.stdout = f
         for line in followers:
             print(line)
-        print(followers)
         sys.stdout = orig_stdout
         f.close()
