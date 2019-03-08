@@ -120,34 +120,35 @@ def validate_path(path):
             raise InstaPyError(msg)
 
 if __name__ == "__main__":
-    username='xxxxx'
-    password='yyyyyyy'
-    Settings.profile["name"] = username
 
-    api = InstagramAPI(username,password)
-    api.login()
+    usersdetails = [(1111,'aaaaaa'), (22222,'bbbbb'), (33333,'ccccc'), (44444,'ddddd')]
+    for username, password in usersdetails:
+        Settings.profile["name"] = username
 
-    multi_logs=True
-    show_logs=True
-    logfolder = get_logfolder(username, multi_logs)
-    logger = get_instapy_logger(show_logs)
+        api = InstagramAPI(username,password)
+        api.login()
 
-    # user_id = '1461295173'
-    user_id = api.username_id
+        multi_logs=True
+        show_logs=True
+        logfolder = get_logfolder(username, multi_logs)
+        logger = get_instapy_logger(show_logs)
 
-    # List of all followers
-    followers = api.getTotalFollowers(user_id)
-    following = api.getTotalFollowings(user_id)
-    posts = api.getTotalUserFeed(user_id)
-    print(len(followers))
-    print(len(following))
-    print(len(posts))
-    
-    save_account_progress("yoav.shai.2010", followers, following, posts, logger)
+        # user_id = '1461295173'
+        user_id = api.username_id
 
-    # orig_stdout = sys.stdout
-    # f = open('out.txt', 'w')
-    # sys.stdout = f
-    # print(followers)
-    # sys.stdout = orig_stdout
-    # f.close()
+        # List of all followers
+        followers = api.getTotalFollowers(user_id)
+        following = api.getTotalFollowings(user_id)
+        posts = api.getTotalUserFeed(user_id)
+        print(len(followers))
+        print(len(following))
+        print(len(posts))
+        
+        save_account_progress("yoav.shai.2010", followers, following, posts, logger)
+
+        # orig_stdout = sys.stdout
+        # f = open('out.txt', 'w')
+        # sys.stdout = f
+        # print(followers)
+        # sys.stdout = orig_stdout
+        # f.close()
