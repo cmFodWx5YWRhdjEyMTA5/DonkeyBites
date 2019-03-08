@@ -105,3 +105,24 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PATH="$PATH:/root/.local/bin"
 
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export PATH="$PATH:/root/.local/bin"
+
+git_pull () {
+    cd /home/DonkeyBites/instaCharts
+    git pull
+    git checkout --ours nginx/doron/followers.json
+    git checkout --ours nginx/SHAKED/followers.json
+    git checkout --ours nginx/YOAV/followers.json
+    git checkout --ours nginx/ofek/followers.json
+}
+
+copy_main_site () {
+    cp -rf /home/DonkeyBites/instaCharts/main_html/* /var/www/html/
+}
+
+copy_to_insta_api () {
+  cp  /home/DonkeyBites/instaCharts/get_stats.py /home/Instagram-API-python/
+}
