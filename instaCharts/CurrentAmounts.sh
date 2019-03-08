@@ -6,11 +6,11 @@ HUMANDATE="$(date +"%d-%m-%Y-%H-%M" )"
 CLIENT=${1}
 SCRIPT_HOME="/home/DonkeyBites/instaCharts"
 
-if [ -f ${SCRIPT_HOME}/${CLIENT}_output.log ]; then
-  rm -rf ${SCRIPT_HOME}/${CLIENT}_output.log
-fi
+#if [ -f ${SCRIPT_HOME}/${CLIENT}_output.log ]; then
+#  rm -rf ${SCRIPT_HOME}/${CLIENT}_output.log
+#fi
 
-touch ${SCRIPT_HOME}/${CLIENT}_output.log
+#touch ${SCRIPT_HOME}/${CLIENT}_output.log
 
 #python3 /home/InstaPy/get_amount_of_FOLLOWERS_${CLIENT}.py > ${SCRIPT_HOME}/${CLIENT}_output.log 2>&1
 
