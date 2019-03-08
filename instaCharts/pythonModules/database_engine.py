@@ -1,7 +1,7 @@
 import os
 import sqlite3
 
-from .settings import Settings
+from settings import Settings
 
 SELECT_FROM_PROFILE_WHERE_NAME = "SELECT * FROM profiles WHERE name = :name"
 
