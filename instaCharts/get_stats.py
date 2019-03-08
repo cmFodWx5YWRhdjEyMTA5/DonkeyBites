@@ -122,7 +122,7 @@ if __name__ == "__main__":
         print(len(following))
         print(len(posts))
         
-        save_account_progress(username, followers, following, posts, logger)
+        save_account_progress(username, len(followers), len(following), len(posts), logger)
 
         orig_stdout = sys.stdout
         f = open( username + '.out.txt', 'w')
