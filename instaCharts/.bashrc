@@ -122,3 +122,8 @@ copy_to_insta_api () {
   cp /home/DonkeyBites/instaCharts/get_stats.py /home/Instagram-API-python/
   cp -r /home/DonkeyBites/instaCharts/pythonModules/* /home/Instagram-API-python/
 }
+
+alias 111='cd /home/InstaPy'
+alias 222='cd /home/DonkeyBites/instaCharts'
+alias 333='cd /var/www/html'
+alias 444='cd /home/Instagram-API-python'
