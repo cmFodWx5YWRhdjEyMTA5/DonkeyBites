@@ -11,7 +11,7 @@ from database_engine import get_database
 from settings import Settings
 from exceptions import InstaPyError
 
-def save_account_progress(username, profile_id, followers, following, posts, logger):
+def save_account_progress(username, followers, following, posts, logger):
     """
     Check account current progress and update database
 
@@ -104,6 +104,7 @@ if __name__ == "__main__":
     ___USERS___
     for username, profile_id, password in usersdetails:
         Settings.profile["name"] = username
+        Settings.profile["id"] = profile_id
 
         api = InstagramAPI(username,password)
         api.login()
@@ -123,7 +124,7 @@ if __name__ == "__main__":
         print(len(following))
         print(len(posts))
         
-        save_account_progress(username, profile_id, len(followers), len(following), len(posts), logger)
+        save_account_progress(username, len(followers), len(following), len(posts), logger)
 
         orig_stdout = sys.stdout
         f = open( username + '.out.txt', 'w')
