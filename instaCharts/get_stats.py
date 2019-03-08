@@ -122,6 +122,8 @@ def validate_path(path):
 if __name__ == "__main__":
     username='yoav.shai.2010'
     password='Ilmbfvm2018'
+    Settings.profile["name"] = username
+
     api = InstagramAPI(username,password)
     api.login()
     multi_logs=True
@@ -141,7 +143,7 @@ if __name__ == "__main__":
     print(len(followers))
     print(len(following))
     print(len(posts))
-
+    
     save_account_progress("yoav.shai.2010", followers, following, posts, logger)
 
 
