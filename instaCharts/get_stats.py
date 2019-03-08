@@ -4,10 +4,15 @@
 # Use text editor to edit the script and type in valid Instagram username/password
 
 from InstagramAPI import InstagramAPI
-import sys
+import sys, os
 import sqlite3, logging
+from os.path import exists as path_exists
+from os.path import isfile as file_exists
+from os.path import sep as native_slash
+
 from database_engine import get_database
 from settings import Settings
+from exceptions import exceptions
 
 def save_account_progress(username, followers, following, posts, logger):
     """
@@ -59,17 +64,17 @@ def get_instapy_logger(show_logs):
     re-instantiation.
     """
 
-    existing_logger = Settings.loggers.get(self.username)
+    existing_logger = Settings.loggers.get(username)
     if existing_logger is not None:
         return existing_logger
     else:
         # initialize and setup logging system for the InstaPy object
-        logger = logging.getLogger(self.username)
+        logger = logging.getLogger(username)
         logger.setLevel(logging.DEBUG)
         file_handler = logging.FileHandler(
-            '{}general.log'.format(self.logfolder))
+            '{}general.log'.format(logfolder))
         file_handler.setLevel(logging.DEBUG)
-        extra = {"username": self.username}
+        extra = {"username": username}
         logger_formatter = logging.Formatter(
             '%(levelname)s [%(asctime)s] [%(username)s]  %(message)s',
             datefmt='%Y-%m-%d %H:%M:%S')
@@ -84,17 +89,44 @@ def get_instapy_logger(show_logs):
 
         logger = logging.LoggerAdapter(logger, extra)
 
-        Settings.loggers[self.username] = logger
+        Settings.loggers[username] = logger
         Settings.logger = logger
         return logger
 
+def get_logfolder(username, multi_logs):
+    if multi_logs:
+        logfolder = "{0}{1}{2}{1}".format(Settings.log_location,
+                                          native_slash,
+                                          username)
+    else:
+        logfolder = (Settings.log_location + native_slash)
 
+    validate_path(logfolder)
+    return logfolder
+
+def validate_path(path):
+    """ Make sure the given path exists """
+
+    if not path_exists(path):
+        try:
+            os.makedirs(path)
+
+        except OSError as exc:
+            exc_name = type(exc).__name__
+            msg = ("{} occured while making \"{}\" path!"
+                   "\n\t{}".format(exc_name,
+                                   path,
+                                   str(exc).encode("utf-8")))
+            raise InstaPyError(msg)
 
 if __name__ == "__main__":
-    api = InstagramAPI("yoav.shai.2010", "Ilmbfvm2018")
+    username='yoav.shai.2010'
+    password='Ilmbfvm2018'
+    api = InstagramAPI(username,password)
     api.login()
-
+    multi_logs=True
     show_logs=True
+    logfolder = get_logfolder(username, multi_logs)
     logger = get_instapy_logger(show_logs)
 
 
