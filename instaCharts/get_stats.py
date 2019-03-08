@@ -12,7 +12,7 @@ from os.path import sep as native_slash
 
 from database_engine import get_database
 from settings import Settings
-from exceptions import exceptions
+from exceptions import InstaPyError
 
 def save_account_progress(username, followers, following, posts, logger):
     """
