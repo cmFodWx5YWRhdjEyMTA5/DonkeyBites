@@ -7,7 +7,7 @@ from InstagramAPI import InstagramAPI
 import sys
 import sqlite3, logging
 from database_engine import get_database
-from ettings import Settings
+from settings import Settings
 
 def save_account_progress(username, followers, following, posts, logger):
     """
