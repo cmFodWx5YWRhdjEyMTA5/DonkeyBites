@@ -120,6 +120,6 @@ copy_main_site () {
 
 copy_to_insta_api () {
   cp /home/DonkeyBites/instaCharts/get_stats.py /home/Instagram-API-python/
-  cp /home/DonkeyBites/instaCharts/pythonModules /home/Instagram-API-python/
+  cp -r /home/DonkeyBites/instaCharts/pythonModules /home/Instagram-API-python/
   cp /home/DonkeyBites/instaCharts/settings.py /home/Instagram-API-python/
 }
