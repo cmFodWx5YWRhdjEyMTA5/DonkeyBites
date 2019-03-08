@@ -124,9 +124,11 @@ if __name__ == "__main__":
         
         save_account_progress(username, followers, following, posts, logger)
 
-        # orig_stdout = sys.stdout
-        # f = open('out.txt', 'w')
-        # sys.stdout = f
-        # print(followers)
-        # sys.stdout = orig_stdout
-        # f.close()
+        orig_stdout = sys.stdout
+        f = open( username + '.out.txt', 'w')
+        sys.stdout = f
+        for line in followers:
+            print(line)
+        print(followers)
+        sys.stdout = orig_stdout
+        f.close()
