@@ -100,7 +100,8 @@ def validate_path(path):
 
 if __name__ == "__main__":
 
-    usersdetails = [(1111,'aaaaaa'), (22222,'bbbbb'), (33333,'ccccc'), (44444,'ddddd')]
+    # usersdetails = [(1111,'aaaaaa'), (22222,'bbbbb'), (33333,'ccccc'), (44444,'ddddd')]
+    ___USERS___
     for username, password in usersdetails:
         Settings.profile["name"] = username
 
