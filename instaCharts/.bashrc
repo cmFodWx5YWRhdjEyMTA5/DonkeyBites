@@ -104,6 +104,7 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PATH="$PATH:/root/.local/bin"
+export INSTAPY_WORKSPACE=/root/InstaPy
 
 git_pull () {
     cd /home/DonkeyBites/instaCharts
