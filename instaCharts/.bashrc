@@ -105,11 +105,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PATH="$PATH:/root/.local/bin"
 
-export LANGUAGE=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export PATH="$PATH:/root/.local/bin"
-
 git_pull () {
     cd /home/DonkeyBites/instaCharts
     git pull
@@ -124,5 +119,7 @@ copy_main_site () {
 }
 
 copy_to_insta_api () {
-  cp  /home/DonkeyBites/instaCharts/get_stats.py /home/Instagram-API-python/
+  cp /home/DonkeyBites/instaCharts/get_stats.py /home/Instagram-API-python/
+  cp /home/DonkeyBites/instaCharts/pythonModules /home/Instagram-API-python/
+  cp /home/DonkeyBites/instaCharts/settings.py /home/Instagram-API-python/
 }
