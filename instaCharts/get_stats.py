@@ -7,7 +7,7 @@ from InstagramAPI import InstagramAPI
 import sys
 import sqlite3, logging
 from database_engine import get_database
-from settings import Settings
+from ettings import Settings
 
 def save_account_progress(username, followers, following, posts, logger):
     """
@@ -53,7 +53,7 @@ def save_account_progress(username, followers, following, posts, logger):
 #         next_max_id = api.LastJson.get('next_max_id', '')
 #     return followers
 
-def get_instapy_logger(self, show_logs):
+def get_instapy_logger(show_logs):
     """
     Handles the creation and retrieval of loggers to avoid
     re-instantiation.
