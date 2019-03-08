@@ -35,7 +35,7 @@ def save_account_progress(username, followers, following, posts, logger):
                    "following, total_posts, created, modified) "
                    "VALUES (?, ?, ?, ?, strftime('%Y-%m-%d %H:%M:%S'), "
                    "strftime('%Y-%m-%d %H:%M:%S'))")
-            cur.execute(sql, (id, followers, following, posts))
+            cur.execute(sql, (id, str(followers), str(following), str(posts)))
             conn.commit()
     except Exception:
         logger.exception('message')
@@ -144,7 +144,7 @@ if __name__ == "__main__":
         print(len(following))
         print(len(posts))
         
-        save_account_progress("yoav.shai.2010", followers, following, posts, logger)
+        save_account_progress(username, followers, following, posts, logger)
 
         # orig_stdout = sys.stdout
         # f = open('out.txt', 'w')
