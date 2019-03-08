@@ -75,4 +75,4 @@ rm mycron
 cd /home
 git clone git@github.com:LevPasha/Instagram-API-python.git
 cp get_stats.py /home/Instagram-API-python/
-
+pip3 install requests_toolbelt
