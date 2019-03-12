@@ -7,7 +7,6 @@ from os.path import exists as path_exists
 from os.path import isfile as file_exists
 from os.path import sep as native_slash
 from datetime import datetime
-import httplib
 
 from database_engine import get_database
 from settings import Settings
